@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5669BC6-6AFF-4974-AE75-D661056A2C5D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pim_de_Fato</RootNamespace>
+    <AssemblyName>Pim de Fato</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.ResourceManager, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\EmailControler.cs" />
+    <Compile Include="Model\BuscaBanco.cs" />
+    <Compile Include="Controller\Cadastro.cs" />
+    <Compile Include="Controller\Produto.cs" />
+    <Compile Include="Itens Personalizados\BotaoRedondo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\Caixa de Vizualizacao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\Caixa de Vizualizacao.Designer.cs">
+      <DependentUpon>Caixa de Vizualizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Itens Personalizados\PainelRedondo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\RoundedComboBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\RoundedComboBoxControl.Designer.cs">
+      <DependentUpon>RoundedComboBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextBoxMasck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextBoxMasck.Designer.cs">
+      <DependentUpon>TextBoxMasck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextBox_Custom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextBox_Custom.Designer.cs">
+      <DependentUpon>TextBox_Custom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextRedonda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Itens Personalizados\TextRedonda.Designer.cs">
+      <DependentUpon>TextRedonda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Conexao.cs" />
+    <Compile Include="Model\Email.cs" />
+    <Compile Include="Model\Mostrar forms.cs" />
+    <Compile Include="Model\ValidacaoEscrita.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cadastro de Fornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro de Fornecedor.Designer.cs">
+      <DependentUpon>Cadastro de Fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Cadastro de Produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro de Produto.Designer.cs">
+      <DependentUpon>Cadastro de Produto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fale conosco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fale conosco.Designer.cs">
+      <DependentUpon>Fale conosco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Historico de transacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Historico de transacao.Designer.cs">
+      <DependentUpon>Historico de transacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tela de Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Tela de Login.Designer.cs">
+      <DependentUpon>Tela de Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TelaInicio.Designer.cs">
+      <DependentUpon>TelaInicio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Itens Personalizados\Caixa de Vizualizacao.resx">
+      <DependentUpon>Caixa de Vizualizacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Itens Personalizados\RoundedComboBoxControl.resx">
+      <DependentUpon>RoundedComboBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Itens Personalizados\TextBoxMasck.resx">
+      <DependentUpon>TextBoxMasck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Itens Personalizados\TextBox_Custom.resx">
+      <DependentUpon>TextBox_Custom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Itens Personalizados\TextRedonda.resx">
+      <DependentUpon>TextRedonda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro de Fornecedor.resx">
+      <DependentUpon>Cadastro de Fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro de Produto.resx">
+      <DependentUpon>Cadastro de Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fale conosco.resx">
+      <DependentUpon>Fale conosco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Historico de transacao.resx">
+      <DependentUpon>Historico de transacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Tela de Login.resx">
+      <DependentUpon>Tela de Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TelaInicio.resx">
+      <DependentUpon>TelaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inicial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuário novo desk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta amarela.Png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta_amarela-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconeCadastro-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__1_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__1_-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminhao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminhao-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminhao-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminho-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-removebg-preview esquerda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plantar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inicial1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconeCadastro-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuário novo desk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__1_-removebg-preview %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-removebg-preview %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminhao-removebg-preview %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caminho-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plantar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estrela.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estrela-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estrela amarela.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
