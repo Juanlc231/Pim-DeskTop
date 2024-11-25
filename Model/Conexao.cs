@@ -14,7 +14,7 @@ namespace Pim_de_Fato.Model
         public Conexao()
         {
             //caminho para o banco de dados
-            conexao.ConnectionString = "Data Source=JBNOOTBOOK\\SQLEXPRESS;Initial Catalog=\"Fazenda Cant Verd\";Integrated Security=True;Encrypt=False"; //camminho para o banco de dados
+            conexao.ConnectionString = "Data Source=JBNootbook;Initial Catalog=Fazenda_Cant_Verd;Integrated Security=True;Encrypt=False"; //camminho para o banco de dados
             
         }
        
