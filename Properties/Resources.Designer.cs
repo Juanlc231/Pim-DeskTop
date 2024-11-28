@@ -183,6 +183,26 @@ namespace Pim_de_Fato.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Seta_Branca {
+            get {
+                object obj = ResourceManager.GetObject("Seta Branca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Seta_Branca1 {
+            get {
+                object obj = ResourceManager.GetObject("Seta Branca1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap seta_removebg_preview__1_ {
             get {
                 object obj = ResourceManager.GetObject("seta-removebg-preview (1)", resourceCulture);

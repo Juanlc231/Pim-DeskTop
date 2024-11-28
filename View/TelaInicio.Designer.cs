@@ -188,11 +188,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Bt_Inicio;
-        private System.Windows.Forms.Label Bt_Produto;
-        private System.Windows.Forms.Label Bt_Forn;
-        private System.Windows.Forms.Label Bt_Fale;
         private System.Windows.Forms.Label Bt_Login;
-        private System.Windows.Forms.Label Bt_Historico;
         public System.Windows.Forms.Panel PainelForm;
+        public System.Windows.Forms.Label Bt_Forn;
+        public System.Windows.Forms.Label Bt_Produto;
+        public System.Windows.Forms.Label Bt_Fale;
+        public System.Windows.Forms.Label Bt_Historico;
     }
 }

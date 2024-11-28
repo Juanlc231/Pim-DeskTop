@@ -1,352 +1,175 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pim_de_Fato.Itens_Personalizados
 {
-    [DefaultEvent("_TexteChanged")]
-    public partial class TextBoxMasck: UserControl
+    public partial class TextBoxMasck : UserControl
     {
-        //Protegidos
+        // Propriedades do controle
         private Color borderColor = Color.Yellow;
         private Color borderFocusColor = Color.Orange;
         private int borderSize = 2;
-        private bool underlineStyle = false;
         private bool isFocused = false;
+        private int borderRedonda = 15; // Raio de borda arredondada
 
-        private int borderRedonda = 15;
-        private Color placeholderColor = Color.DarkGray;
-        private string placeholderText = "";
-        private bool isPlaceholder = false;
-        private bool isPasswordChar = false;
-        private string Mask;
-
-        //Construcao
+        // Construtor
         public TextBoxMasck()
         {
             InitializeComponent();
+            maskedTextBox1.Mask = "00/00/0000"; // Máscara padrão (exemplo)
+            maskedTextBox1.TextChanged += (s, e) => OnTextChanged();
+            maskedTextBox1.Enter += (s, e) => OnFocusEnter();
+            maskedTextBox1.Leave += (s, e) => OnFocusLeave();
         }
 
-        //Eventos
-        public event EventHandler _TexteChanged;
-
-        //Propiedades
-        [Category("Itens Do Pim")]
-        public Color BoderColor
+        private void OnTextChanged()
         {
-            get
-            {
-                return borderColor;
-            }
-
-            set
-            {
-                borderColor = value;
-                this.Invalidate();
-            }
+            TextChanged?.Invoke(this, EventArgs.Empty);
         }
-        [Category("Itens Do Pim")]
-        public int BoderSize
+
+        private void OnFocusLeave()
         {
-            get
-            {
-                return borderSize;
-            }
-            set
-            {
-                borderSize = value;
-                this.Invalidate();
-            }
+            isFocused = false;
+            this.Invalidate(); // Recria o controle quando o foco é perdido
         }
-        [Category("Itens Do Pim")]
-        public bool UnderlineStyle
+
+        private void OnFocusEnter()
         {
-            get
-            {
-                return underlineStyle;
-            }
-            set
-            {
-                underlineStyle = value;
-                this.Invalidate();
-            }
+            isFocused = true;
+            this.Invalidate(); // Recria o controle quando o foco é dado
+
+            // Usando o método Select() para garantir que o cursor está no início
+            maskedTextBox1.Select(0, 0); // Coloca o cursor à extrema esquerda
+
+            // Garantindo que o foco foi corretamente aplicado
+            maskedTextBox1.Focus();
+        }
+
+        // Evento de texto alterado
+        public event EventHandler TextChanged;
+
+        // Propriedades
+        [Category("Itens Do Pim")]
+        public string Mask
+        {
+            get { return maskedTextBox1.Mask; }
+            set { maskedTextBox1.Mask = value; }
         }
 
         [Category("Itens Do Pim")]
-        public bool PasswordChar
+        public string Text
         {
-            get { return isPasswordChar; }
-            set
-            {
-                isPasswordChar = value;
-                maskedTextBox1.UseSystemPasswordChar = value;
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        public bool Multileine
-        {
-            get { return maskedTextBox1.Multiline; }
-            set { maskedTextBox1.Multiline = value; }
-        }
-
-        [Category("Itens Do Pim")]
-        public override Color BackColor
-        {
-            get
-            {
-                return base.BackColor;
-            }
-            set
-            {
-                base.BackColor = value;
-                maskedTextBox1.BackColor = value;
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        public override Color ForeColor
-        {
-            get
-            {
-                return base.ForeColor;
-            }
-            set
-            {
-                base.ForeColor = value;
-                maskedTextBox1.ForeColor = value;
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        public override Font Font
-        {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-                maskedTextBox1.Font = value;
-                if (this.DesignMode)
-                    UpdateControlHeight();
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        public string Texts
-        {
-            get
-            {
-                if (isPlaceholder) return "";
-                else return maskedTextBox1.Text;
-
-            }
+            get { return maskedTextBox1.Text; }
             set
             {
                 maskedTextBox1.Text = value;
-                SetPlaceholder();
+                maskedTextBox1.SelectionStart = 0; // Garante que o cursor esteja no início
+                maskedTextBox1.SelectionLength = 0; // Garante que não haja seleção
+            }
+        }
+
+        [Category("Itens Do Pim")]
+        public Color BorderColor
+        {
+            get { return borderColor; }
+            set
+            {
+                borderColor = value;
+                this.Invalidate(); // Força a recriação da borda
             }
         }
 
         [Category("Itens Do Pim")]
         public Color BorderFocusColor
         {
-            get
-            {
-                return borderFocusColor;
-            }
+            get { return borderFocusColor; }
             set
             {
                 borderFocusColor = value;
-                this.Invalidate();
+                this.Invalidate(); // Força a recriação da borda
+            }
+        }
+
+        [Category("Itens Do Pim")]
+        public int BorderSize
+        {
+            get { return borderSize; }
+            set
+            {
+                borderSize = value;
+                this.Invalidate(); // Força a recriação da borda
             }
         }
 
         [Category("Itens Do Pim")]
         public int BorderRedonda
         {
-            get
-            {
-                return borderRedonda;
-            }
+            get { return borderRedonda; }
             set
             {
-                if (value >= 0)
-                {
-                    borderRedonda = value;
-                    this.Invalidate();//redesenhando controle
-                }
-
+                borderRedonda = value;
+                this.Invalidate(); // Força a recriação da borda
             }
         }
 
         [Category("Itens Do Pim")]
-        public Color PlaceholderColor
+        public void LimparTexto()
         {
-            get
-            {
-                return placeholderColor;
-            }
-            set
-            {
-                placeholderColor = value;
-                if (isPasswordChar)
-                    maskedTextBox1.ForeColor = value;
-            }
+            // Limpa o texto da TextBox
+            maskedTextBox1.Clear();
         }
 
-        [Category("Itens Do Pim")]
-        public string PlaceholderText
-        {
-            get
-            {
-                return placeholderText;
-            }
-            set
-            {
-                placeholderText = value;
-                maskedTextBox1.Text = "";
-                SetPlaceholder();
-            }
-        }
+        // Métodos de controle de foco
 
-        public string Mask1
+        private void OnFocusLeave(object sender, EventArgs e)
         {
-            get
-            {  
-                return maskedTextBox1.Mask;
-            }
-            set 
-            {  
-                maskedTextBox1.Mask = value;
-                this.Invalidate();
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        private void SetPlaceholder()
-        {
-            if (string.IsNullOrWhiteSpace(maskedTextBox1.Text) && placeholderText != "")
-            {
-                isPlaceholder = true;
-                maskedTextBox1.Text = placeholderText;
-                maskedTextBox1.ForeColor = placeholderColor;
-                if (isPasswordChar)
-                    maskedTextBox1.UseSystemPasswordChar = false;
-            }
-        }
-
-        [Category("Itens Do Pim")]
-        private void RemovePlaceholder()
-        {
-            if (isPlaceholder && placeholderText != "")
-            {
-                isPlaceholder = false;
-                maskedTextBox1.Text = "";
-                maskedTextBox1.ForeColor = this.ForeColor;
-                if (isPasswordChar)
-                    maskedTextBox1.UseSystemPasswordChar = true;
-            }
+            isFocused = false;
+            this.Invalidate(); // Recria o controle quando o foco é perdido
         }
 
 
-        //Metodos Overriden
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            if (this.DesignMode)
-                UpdateControlHeight();
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            UpdateControlHeight();
-        }
-
+        // Sobrescrita do método OnPaint para customizar a borda
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             Graphics graph = e.Graphics;
 
-            if (borderRedonda > 1) // textBox redonda
+            if (borderRedonda > 1) // Borda arredondada
             {
-                //protegidos
                 var rectBorderSmooth = this.ClientRectangle;
                 var rectBorder = Rectangle.Inflate(rectBorderSmooth, -borderSize, -borderSize);
                 int smoothSize = borderSize > 0 ? borderSize : 1;
 
                 using (GraphicsPath pathBorderSmooth = GetFigurePath(rectBorderSmooth, borderRedonda))
-                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRedonda - BoderSize))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRedonda - BorderSize))
                 using (Pen penBorderSmooth = new Pen(this.Parent.BackColor, smoothSize))
-                using (Pen penBorder = new Pen(borderColor, BoderSize))
+                using (Pen penBorder = new Pen(borderColor, BorderSize))
                 {
-                    //desenhando a borda
-                    this.Region = new Region(pathBorderSmooth);//definindo a regiao redonda do controle do usuario
-                    if (borderRedonda > 15) SetTextBoxRoundedRegion();//definindo a regiao redonda do componente TextBox
-                    graph.SmoothingMode = SmoothingMode.AntiAlias;
-                    penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Center;
+                    this.Region = new Region(pathBorderSmooth);
                     if (isFocused) penBorder.Color = borderFocusColor;
 
-                    if (underlineStyle)//estilo de linha
-                    {
-                        //desenhando a borada suavizada
-                        graph.DrawPath(penBorderSmooth, pathBorderSmooth);
-                        //desenhando a borada 
-                        graph.SmoothingMode = SmoothingMode.None;
-                        graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
-                    }
-                    else // estilo normal
-                    {
-                        //desenhando a borada suavizada
-                        graph.DrawPath(penBorderSmooth, pathBorderSmooth);
-                        //desenhando a borada 
-                        graph.DrawPath(penBorder, pathBorder);
-                    }
+                    graph.DrawPath(penBorderSmooth, pathBorderSmooth);
+                    graph.DrawPath(penBorder, pathBorder);
                 }
             }
-            else //Textbox, Normal
+            else // Borda normal
             {
-                using (Pen penBorder = new Pen(borderColor, borderSize)) //Desenhando a borda
+                using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
                     this.Region = new Region(this.ClientRectangle);
-                    penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+                    penBorder.Alignment = PenAlignment.Inset;
                     if (isFocused) penBorder.Color = borderFocusColor;
 
-                    if (underlineStyle) //estilo de linha
-                        graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
-
-                    else // estilo normal
-                        graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+                    graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
                 }
             }
         }
 
-        private void SetTextBoxRoundedRegion()
-        {
-            GraphicsPath pathText;
-            if (Multileine)
-            {
-                pathText = GetFigurePath(maskedTextBox1.ClientRectangle, borderRedonda - borderSize);
-                maskedTextBox1.Region = new Region(pathText);
-            }
-            else
-            {
-                pathText = GetFigurePath(maskedTextBox1.ClientRectangle, borderSize * 2);
-                maskedTextBox1.Region = new Region(pathText);
-            }
-        }
-
+        // Método auxiliar para definir a região arredondada
         private GraphicsPath GetFigurePath(Rectangle rect, int radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -359,44 +182,28 @@ namespace Pim_de_Fato.Itens_Personalizados
             path.AddArc(rect.X, rect.Bottom - curveSize, curveSize, curveSize, 90, 90);
             path.CloseFigure();
             return path;
-
         }
 
+        // Sobrescrita do método OnResize para garantir o ajuste da altura do controle
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (this.DesignMode)
+                UpdateControlHeight();
+        }
 
+        // Sobrescrita do método OnLoad para inicializar o controle no momento de carregamento
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            UpdateControlHeight();
+        }
 
-        //Metodods Privados
+        // Atualiza a altura do controle (sem multiline)
         private void UpdateControlHeight()
         {
-            if (maskedTextBox1.Multiline == false)
-            {
-                int txtAltura = TextRenderer.MeasureText("Texto", this.Font).Height + 1;
-                maskedTextBox1.Multiline = true;
-                maskedTextBox1.MinimumSize = new Size(0, txtAltura);
-                maskedTextBox1.Multiline = false;
-
-                this.Height = maskedTextBox1.Height + this.Padding.Top + this.Padding.Bottom;
-
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (_TexteChanged != null)
-                _TexteChanged.Invoke(sender, e);
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            isFocused = true;
-            this.Invalidate();
-            RemovePlaceholder();
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            isFocused = false;
-            this.Invalidate();
-            SetPlaceholder();
+            int txtHeight = TextRenderer.MeasureText("Texto", this.Font).Height + 1;
+            this.Height = txtHeight + this.Padding.Top + this.Padding.Bottom;
         }
     }
 }

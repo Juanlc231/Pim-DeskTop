@@ -35,9 +35,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Seta2 = new System.Windows.Forms.PictureBox();
             this.Seta1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Bt_Sair = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seta2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seta1)).BeginInit();
+            this.Bt_Sair.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Bt_Download
@@ -116,7 +123,7 @@
             this.Seta2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Seta2.BackColor = System.Drawing.Color.Transparent;
             this.Seta2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Seta2.Image = global::Pim_de_Fato.Properties.Resources.seta_removebg_preview__1_;
+            this.Seta2.Image = global::Pim_de_Fato.Properties.Resources.Seta_Branca1;
             this.Seta2.Location = new System.Drawing.Point(990, 419);
             this.Seta2.Name = "Seta2";
             this.Seta2.Size = new System.Drawing.Size(94, 89);
@@ -129,7 +136,7 @@
             // 
             this.Seta1.BackColor = System.Drawing.Color.Transparent;
             this.Seta1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Seta1.Image = global::Pim_de_Fato.Properties.Resources.seta_removebg_preview__1_1;
+            this.Seta1.Image = global::Pim_de_Fato.Properties.Resources.Seta_Branca;
             this.Seta1.Location = new System.Drawing.Point(161, 419);
             this.Seta1.Name = "Seta1";
             this.Seta1.Size = new System.Drawing.Size(94, 89);
@@ -138,6 +145,75 @@
             this.Seta1.TabStop = false;
             this.Seta1.Click += new System.EventHandler(this.Seta1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.Location = new System.Drawing.Point(586, 123);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(25, 23);
+            this.panel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(607, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(340, 23);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Media de tranções mensais 2023";
+            // 
+            // Bt_Sair
+            // 
+            this.Bt_Sair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Bt_Sair.BackColor = System.Drawing.Color.Transparent;
+            this.Bt_Sair.ColumnCount = 2;
+            this.Bt_Sair.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.Bt_Sair.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
+            this.Bt_Sair.Controls.Add(this.pictureBox2, 0, 0);
+            this.Bt_Sair.Controls.Add(this.label3, 1, 0);
+            this.Bt_Sair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bt_Sair.Location = new System.Drawing.Point(50, 692);
+            this.Bt_Sair.Name = "Bt_Sair";
+            this.Bt_Sair.RowCount = 1;
+            this.Bt_Sair.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.Bt_Sair.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.Bt_Sair.Size = new System.Drawing.Size(186, 46);
+            this.Bt_Sair.TabIndex = 8;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::Pim_de_Fato.Properties.Resources.Seta_amarela_removebg_preview;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(42, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(51, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 46);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Sair";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Historico_de_transacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -145,6 +221,9 @@
             this.BackgroundImage = global::Pim_de_Fato.Properties.Resources.usuário_novo_desk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1284, 768);
+            this.Controls.Add(this.Bt_Sair);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Seta1);
             this.Controls.Add(this.Seta2);
             this.Controls.Add(this.label1);
@@ -160,6 +239,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seta2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seta1)).EndInit();
+            this.Bt_Sair.ResumeLayout(false);
+            this.Bt_Sair.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +255,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox Seta2;
         private System.Windows.Forms.PictureBox Seta1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel Bt_Sair;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

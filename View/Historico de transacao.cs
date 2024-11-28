@@ -60,7 +60,7 @@ namespace Pim_de_Fato.View
             };
             chart.ChartAreas.Add(chartArea);
 
-            chartArea.AxisY.MajorGrid.LineColor = Color.Black; // Cor das linhas horizontais
+            chartArea.AxisY.MajorGrid.LineColor = Color.White; // Cor das linhas horizontais
             chartArea.AxisY.MajorGrid.Enabled = true; // Ativar linhas horizontais
             chartArea.AxisX.MajorGrid.Enabled = false; // Desativar linhas verticais
 
@@ -110,7 +110,6 @@ namespace Pim_de_Fato.View
         {
             Bt_Gerenciar.ForeColor = Color.White;
         }
-
         private void Seta2_Click(object sender, EventArgs e)
         {
             con++;
@@ -192,6 +191,16 @@ namespace Pim_de_Fato.View
                 Seta2.Show();
             }
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -36,10 +36,11 @@
             this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maskedTextBox1.Location = new System.Drawing.Point(10, 7);
-            this.maskedTextBox1.Mask = "000-0000";
+            this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(230, 15);
             this.maskedTextBox1.TabIndex = 0;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // TextBoxMasck
             // 

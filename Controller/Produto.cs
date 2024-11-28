@@ -44,7 +44,7 @@ namespace Pim_de_Fato.Controller
             }
             catch (SqlException e)
             {
-                MessageBox.Show("Erro ao cadastrar no banco de dados" + e);
+                MessageBox.Show("Erro ao cadastrar produtos, reveja ou insera dados validos", "Erro de cadastro de produtos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
             }
         }
     }

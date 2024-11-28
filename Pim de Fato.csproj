@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EmailControler.cs" />
+    <Compile Include="Controller\Login.cs" />
     <Compile Include="Model\BuscaBanco.cs" />
     <Compile Include="Controller\Cadastro.cs" />
     <Compile Include="Controller\Produto.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Model\Conexao.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Mostrar forms.cs" />
-    <Compile Include="Model\ValidacaoEscrita.cs" />
+    <Compile Include="Controller\ValidacaoEscrita.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -266,6 +267,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\estrela amarela.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta Branca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta Branca1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

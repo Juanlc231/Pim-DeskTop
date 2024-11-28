@@ -48,7 +48,7 @@ namespace Pim_de_Fato.Controller
             catch (SqlException e)
             {
                 //tratamento de erro
-                MessageBox.Show("Erro ao cadastrar no Banco de Dados, necessario inserir todas as informações certa." + e);
+                MessageBox.Show("Erro ao cadastrar no Banco de Dados, necessario inserir todas as informações certa.", "ERRO DE BANCO", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         } 
     }

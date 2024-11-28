@@ -403,7 +403,7 @@ namespace Pim_C_
             SetPlaceholder();
         }
 
-        private void Vizu_CheckedChanged(object sender, EventArgs e)
+        private void Vizu_CheckedChanged_1(object sender, EventArgs e)
         {
             if (Vizu.Checked == true)
             {
@@ -413,6 +413,7 @@ namespace Pim_C_
             {
                 PasswordChar = true;
             }
+
         }
     }
 }

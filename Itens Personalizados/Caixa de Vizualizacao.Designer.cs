@@ -47,7 +47,7 @@
             this.Vizu.Size = new System.Drawing.Size(50, 20);
             this.Vizu.TabIndex = 0;
             this.Vizu.UseVisualStyleBackColor = false;
-            this.Vizu.CheckedChanged += new System.EventHandler(this.Vizu_CheckedChanged);
+            this.Vizu.CheckedChanged += new System.EventHandler(this.Vizu_CheckedChanged_1);
             // 
             // textBox1
             // 

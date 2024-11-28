@@ -27,6 +27,8 @@ namespace Pim_de_Fato.Itens_Personalizados
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
+        private bool isNumero = false;
+        
 
 
 
@@ -53,7 +55,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 borderColor = value;
                 this.Invalidate();
             }
-        }
+        }  //codigo de cor das bordas
         [Category("Itens Do Pim")]
         public int BoderSize
         {
@@ -66,7 +68,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 borderSize = value;
                 this.Invalidate();
             }
-        }
+        } //codigo de tamanho das bordas
         [Category("Itens Do Pim")]
         public bool UnderlineStyle
         {
@@ -79,7 +81,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 underlineStyle = value;
                 this.Invalidate();
             }
-        }
+        }   //codigo para sublinhar as escritas de texto da textbox
 
         [Category("Itens Do Pim")]
         public bool PasswordChar
@@ -90,14 +92,14 @@ namespace Pim_de_Fato.Itens_Personalizados
                 isPasswordChar = value;
                 textBox1.UseSystemPasswordChar = value;
             }
-        }
+        } //codigo para ocultar as escritas de texto da textbox
 
         [Category("Itens Do Pim")]
         public bool Multileine
         {
             get { return textBox1.Multiline; }
             set { textBox1.Multiline = value; }
-        }
+        } //codigo para textbox aceitar multiline
 
         [Category("Itens Do Pim")]
         public override Color BackColor
@@ -111,7 +113,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 base.BackColor = value;
                 textBox1.BackColor = value;
             }
-        }
+        } //codigo para cor de fundo da textbox
 
         [Category("Itens Do Pim")]
         public override Color ForeColor
@@ -125,7 +127,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 base.ForeColor = value;
                 textBox1.ForeColor = value;
             }
-        }
+        } //codigo para cor de texto da textbox
 
         [Category("Itens Do Pim")]
         public override Font Font
@@ -141,7 +143,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 if (this.DesignMode)
                     UpdateControlHeight();
             }
-        }
+        } //codigo para font de texto da textbox
 
         [Category("Itens Do Pim")]
         public string Texts
@@ -157,7 +159,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 textBox1.Text = value;
                 SetPlaceholder();
             }
-        }
+        } //codigo para texto da textbox
 
         [Category("Itens Do Pim")]
         public Color BorderFocusColor
@@ -171,7 +173,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 borderFocusColor = value;
                 this.Invalidate();
             }
-        }
+        } //codigo para o foco das bordas arredondadas da textbox
 
         [Category("Itens Do Pim")]
         public int BorderRedonda
@@ -189,7 +191,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 }
 
             }
-        }
+        } //codigo para as bordas arredondadas da textbox
 
         [Category("Itens Do Pim")]
         public Color PlaceholderColor
@@ -204,7 +206,7 @@ namespace Pim_de_Fato.Itens_Personalizados
                 if (isPasswordChar)
                     textBox1.ForeColor = value;
             }
-        }
+        } //codigo para a cor do texto de fundo da textbox
 
         [Category("Itens Do Pim")]
         public string PlaceholderText
@@ -219,7 +221,21 @@ namespace Pim_de_Fato.Itens_Personalizados
                 textBox1.Text = "";
                 SetPlaceholder();
             }
-        }
+        } //codigo para texto de fundo de textbox
+
+        [Category("Itens Do Pim")]
+        public bool IsNumero
+        {
+            get
+            {
+                return isNumero;
+            }
+            set
+            {
+                isNumero = value;
+
+            }
+        } //codigo para aceitar somente numeros
 
         [Category("Itens Do Pim")]
         private void SetPlaceholder()
@@ -245,6 +261,13 @@ namespace Pim_de_Fato.Itens_Personalizados
                 if (isPasswordChar)
                     textBox1.UseSystemPasswordChar = true;
             }
+        }
+
+        [Category("Itens Do Pim")]
+        public void LimparTexto()
+        {
+   
+            textBox1.Clear();
         }
 
 
@@ -376,15 +399,26 @@ namespace Pim_de_Fato.Itens_Personalizados
         private void textBox1_Enter(object sender, EventArgs e)
         {
             isFocused = true;
-            this.Invalidate();
+            this.Invalidate(); //entarda de foco na textbox
             RemovePlaceholder();
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             isFocused = false;
-            this.Invalidate();
+            this.Invalidate(); // saida de foco de textbox
             SetPlaceholder();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (isNumero == true)
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && !Char.IsPunctuation(e.KeyChar)) // aceita somente numeros e pontos
+                {
+                    e.Handled = true; 
+                }
+            }
         }
     }
 }

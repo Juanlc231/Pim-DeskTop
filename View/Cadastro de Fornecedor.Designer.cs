@@ -38,12 +38,12 @@
             this.Bt_Fornecedor = new Pim_C_.Itens_Costume.Botao();
             this.roundPanel1 = new RoundPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.TextBox_Data = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.TextBox_Email = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.TextBox_Endereco = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
-            this.TextBox_Telefone = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.TextBox_Cnpj = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.TextBox_Senha = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
+            this.textbox_Data = new Pim_de_Fato.Itens_Personalizados.TextBoxMasck();
+            this.textbox_Telefone = new Pim_de_Fato.Itens_Personalizados.TextBoxMasck();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.TextBox_Nome = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.tableLayoutPanel1.SuspendLayout();
@@ -123,6 +123,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label2
             // 
@@ -138,6 +139,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Voltar";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Bt_Fornecedor
             // 
@@ -186,12 +188,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.84375F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel3.Controls.Add(this.TextBox_Data, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.TextBox_Email, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.TextBox_Endereco, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.TextBox_Telefone, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.TextBox_Cnpj, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.TextBox_Senha, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textbox_Data, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textbox_Telefone, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 80);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
@@ -200,30 +202,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(936, 257);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // TextBox_Data
-            // 
-            this.TextBox_Data.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBox_Data.BackColor = System.Drawing.SystemColors.Window;
-            this.TextBox_Data.BoderColor = System.Drawing.Color.White;
-            this.TextBox_Data.BoderSize = 2;
-            this.TextBox_Data.BorderFocusColor = System.Drawing.Color.Black;
-            this.TextBox_Data.BorderRedonda = 15;
-            this.TextBox_Data.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox_Data.ForeColor = System.Drawing.Color.Black;
-            this.TextBox_Data.Location = new System.Drawing.Point(45, 61);
-            this.TextBox_Data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TextBox_Data.Multileine = false;
-            this.TextBox_Data.Name = "TextBox_Data";
-            this.TextBox_Data.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TextBox_Data.PasswordChar = false;
-            this.TextBox_Data.PlaceholderColor = System.Drawing.Color.Gray;
-            this.TextBox_Data.PlaceholderText = "Data de Nascimento:";
-            this.TextBox_Data.Size = new System.Drawing.Size(304, 42);
-            this.TextBox_Data.TabIndex = 0;
-            this.TextBox_Data.Texts = "";
-            this.TextBox_Data.UnderlineStyle = false;
             // 
             // TextBox_Email
             // 
@@ -273,30 +251,6 @@
             this.TextBox_Endereco.Texts = "";
             this.TextBox_Endereco.UnderlineStyle = false;
             // 
-            // TextBox_Telefone
-            // 
-            this.TextBox_Telefone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBox_Telefone.BackColor = System.Drawing.SystemColors.Window;
-            this.TextBox_Telefone.BoderColor = System.Drawing.Color.White;
-            this.TextBox_Telefone.BoderSize = 2;
-            this.TextBox_Telefone.BorderFocusColor = System.Drawing.Color.Black;
-            this.TextBox_Telefone.BorderRedonda = 15;
-            this.TextBox_Telefone.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox_Telefone.ForeColor = System.Drawing.Color.Black;
-            this.TextBox_Telefone.Location = new System.Drawing.Point(45, 165);
-            this.TextBox_Telefone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TextBox_Telefone.Multileine = false;
-            this.TextBox_Telefone.Name = "TextBox_Telefone";
-            this.TextBox_Telefone.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TextBox_Telefone.PasswordChar = false;
-            this.TextBox_Telefone.PlaceholderColor = System.Drawing.Color.Gray;
-            this.TextBox_Telefone.PlaceholderText = "Telefone:";
-            this.TextBox_Telefone.Size = new System.Drawing.Size(304, 42);
-            this.TextBox_Telefone.TabIndex = 0;
-            this.TextBox_Telefone.Texts = "";
-            this.TextBox_Telefone.UnderlineStyle = false;
-            // 
             // TextBox_Cnpj
             // 
             this.TextBox_Cnpj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -344,6 +298,45 @@
             this.TextBox_Senha.TabIndex = 0;
             this.TextBox_Senha.Texts = "";
             this.TextBox_Senha.UnderlineStyle = false;
+            // 
+            // textbox_Data
+            // 
+            this.textbox_Data.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_Data.BackColor = System.Drawing.Color.White;
+            this.textbox_Data.BorderColor = System.Drawing.Color.White;
+            this.textbox_Data.BorderFocusColor = System.Drawing.Color.Black;
+            this.textbox_Data.BorderRedonda = 15;
+            this.textbox_Data.BorderSize = 2;
+            this.textbox_Data.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox_Data.ForeColor = System.Drawing.Color.Black;
+            this.textbox_Data.Location = new System.Drawing.Point(46, 60);
+            this.textbox_Data.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textbox_Data.Mask = "00/00/0000";
+            this.textbox_Data.Name = "textbox_Data";
+            this.textbox_Data.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.textbox_Data.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textbox_Data.Size = new System.Drawing.Size(302, 43);
+            this.textbox_Data.TabIndex = 1;
+            // 
+            // textbox_Telefone
+            // 
+            this.textbox_Telefone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_Telefone.BackColor = System.Drawing.SystemColors.Window;
+            this.textbox_Telefone.BorderColor = System.Drawing.Color.White;
+            this.textbox_Telefone.BorderFocusColor = System.Drawing.Color.Black;
+            this.textbox_Telefone.BorderRedonda = 15;
+            this.textbox_Telefone.BorderSize = 2;
+            this.textbox_Telefone.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox_Telefone.ForeColor = System.Drawing.Color.Black;
+            this.textbox_Telefone.Location = new System.Drawing.Point(46, 169);
+            this.textbox_Telefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textbox_Telefone.Mask = "(00)00000-0000";
+            this.textbox_Telefone.Name = "textbox_Telefone";
+            this.textbox_Telefone.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.textbox_Telefone.Size = new System.Drawing.Size(302, 38);
+            this.textbox_Telefone.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -427,10 +420,8 @@
         private RoundPanel roundPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private Itens_Personalizados.TextRedonda TextBox_Data;
         private Itens_Personalizados.TextRedonda TextBox_Email;
         private Itens_Personalizados.TextRedonda TextBox_Endereco;
-        private Itens_Personalizados.TextRedonda TextBox_Telefone;
         private Itens_Personalizados.TextRedonda TextBox_Cnpj;
         private Pim_C_.Itens_Costume.Botao Bt_Fornecedor;
         private System.Windows.Forms.TableLayoutPanel Bt_Volta;
@@ -438,5 +429,7 @@
         private System.Windows.Forms.Label label2;
         private Itens_Personalizados.TextRedonda TextBox_Senha;
         public Itens_Personalizados.TextRedonda TextBox_Nome;
+        private Itens_Personalizados.TextBoxMasck textbox_Data;
+        private Itens_Personalizados.TextBoxMasck textbox_Telefone;
     }
 }

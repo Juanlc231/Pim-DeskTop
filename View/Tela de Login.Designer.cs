@@ -41,11 +41,11 @@
             this.TextBox_Usuario = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.TextBox_Email = new Pim_de_Fato.Itens_Personalizados.TextRedonda();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.TextBox_Senha = new Pim_C_.CaixaVizualizacao();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.CBox_Lembrese = new System.Windows.Forms.CheckBox();
             this.Bt_Entrar = new Pim_C_.Itens_Costume.Botao();
             this.Bt_Cadastrese = new System.Windows.Forms.Label();
+            this.Textbox_Senha = new Pim_C_.CaixaVizualizacao();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -114,11 +114,11 @@
             this.tableLayoutPanel1.Controls.Add(this.TextBox_Usuario, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.TextBox_Email, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.TextBox_Senha, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.CBox_Lembrese, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.Bt_Entrar, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.Bt_Cadastrese, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.Textbox_Senha, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 120);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -192,6 +192,7 @@
             this.TextBox_Usuario.BorderFocusColor = System.Drawing.Color.Transparent;
             this.TextBox_Usuario.BorderRedonda = 11;
             this.TextBox_Usuario.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox_Usuario.IsNumero = false;
             this.TextBox_Usuario.Location = new System.Drawing.Point(105, 98);
             this.TextBox_Usuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBox_Usuario.Multileine = false;
@@ -215,6 +216,7 @@
             this.TextBox_Email.BorderFocusColor = System.Drawing.Color.Transparent;
             this.TextBox_Email.BorderRedonda = 11;
             this.TextBox_Email.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox_Email.IsNumero = false;
             this.TextBox_Email.Location = new System.Drawing.Point(105, 172);
             this.TextBox_Email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBox_Email.Multileine = false;
@@ -238,29 +240,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
-            // 
-            // TextBox_Senha
-            // 
-            this.TextBox_Senha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBox_Senha.BackColor = System.Drawing.SystemColors.Window;
-            this.TextBox_Senha.BoderColor = System.Drawing.Color.Transparent;
-            this.TextBox_Senha.BoderSize = 2;
-            this.TextBox_Senha.BorderFocusColor = System.Drawing.Color.Transparent;
-            this.TextBox_Senha.BorderRedonda = 11;
-            this.TextBox_Senha.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox_Senha.Location = new System.Drawing.Point(105, 248);
-            this.TextBox_Senha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TextBox_Senha.Multileine = false;
-            this.TextBox_Senha.Name = "TextBox_Senha";
-            this.TextBox_Senha.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TextBox_Senha.PasswordChar = true;
-            this.TextBox_Senha.PlaceholderColor = System.Drawing.Color.Transparent;
-            this.TextBox_Senha.PlaceholderText = "";
-            this.TextBox_Senha.Size = new System.Drawing.Size(322, 38);
-            this.TextBox_Senha.TabIndex = 3;
-            this.TextBox_Senha.Texts = "";
-            this.TextBox_Senha.UnderlineStyle = false;
             // 
             // pictureBox4
             // 
@@ -306,6 +285,7 @@
             this.Bt_Entrar.Text = "ENTRAR";
             this.Bt_Entrar.TextColor = System.Drawing.Color.White;
             this.Bt_Entrar.UseVisualStyleBackColor = false;
+            this.Bt_Entrar.Click += new System.EventHandler(this.Bt_Entrar_Click);
             // 
             // Bt_Cadastrese
             // 
@@ -323,6 +303,28 @@
             this.Bt_Cadastrese.Click += new System.EventHandler(this.Bt_Cadastrese_Click);
             this.Bt_Cadastrese.MouseEnter += new System.EventHandler(this.Bt_Cadastrese_MouseEnter);
             this.Bt_Cadastrese.MouseLeave += new System.EventHandler(this.Bt_Cadastrese_MouseLeave);
+            // 
+            // Textbox_Senha
+            // 
+            this.Textbox_Senha.BackColor = System.Drawing.Color.White;
+            this.Textbox_Senha.BoderColor = System.Drawing.Color.White;
+            this.Textbox_Senha.BoderSize = 2;
+            this.Textbox_Senha.BorderFocusColor = System.Drawing.Color.Transparent;
+            this.Textbox_Senha.BorderRedonda = 15;
+            this.Textbox_Senha.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Textbox_Senha.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Textbox_Senha.Location = new System.Drawing.Point(106, 238);
+            this.Textbox_Senha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Textbox_Senha.Multileine = false;
+            this.Textbox_Senha.Name = "Textbox_Senha";
+            this.Textbox_Senha.Padding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.Textbox_Senha.PasswordChar = true;
+            this.Textbox_Senha.PlaceholderColor = System.Drawing.Color.Transparent;
+            this.Textbox_Senha.PlaceholderText = "";
+            this.Textbox_Senha.Size = new System.Drawing.Size(320, 40);
+            this.Textbox_Senha.TabIndex = 7;
+            this.Textbox_Senha.Texts = "";
+            this.Textbox_Senha.UnderlineStyle = false;
             // 
             // Tela_de_Login
             // 
@@ -366,10 +368,10 @@
         private Pim_de_Fato.Itens_Personalizados.TextRedonda TextBox_Usuario;
         private Pim_de_Fato.Itens_Personalizados.TextRedonda TextBox_Email;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Pim_C_.CaixaVizualizacao TextBox_Senha;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.CheckBox CBox_Lembrese;
         private Pim_C_.Itens_Costume.Botao Bt_Entrar;
         private System.Windows.Forms.Label Bt_Cadastrese;
+        private Pim_C_.CaixaVizualizacao Textbox_Senha;
     }
 }
